@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface ApiAddressImpl{
+interface ApiAddress{
     @GET("/v2/local/search/address.json")
     fun getAddress(
         @Query("query") query: String,
