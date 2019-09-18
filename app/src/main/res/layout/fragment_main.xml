@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+
+    <EditText
+        android:id="@+id/et_fragment_main_input_text"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:gravity="center"
+        android:hint="지역을 입력해주세요."
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btn_fragment_main_search"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_fragment_main_search"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:text="검색"
+        app:layout_constraintBottom_toBottomOf="@id/et_fragment_main_input_text"
+        app:layout_constraintLeft_toRightOf="@id/et_fragment_main_input_text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_fragment_main_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_fragment_main_input_text"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
