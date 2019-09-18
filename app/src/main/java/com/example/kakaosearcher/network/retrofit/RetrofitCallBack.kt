@@ -6,7 +6,7 @@ import retrofit2.Response
 
 class RetrofitCallBack<T>(
     private val retrofitListener: RetrofitListener<T>
-) : Callback<T> {
+) : Callback<T>{
 
     override fun onResponse(
         call: Call<T>,
@@ -30,7 +30,7 @@ class RetrofitCallBack<T>(
     ) = retrofitListener.onNetworkError(t.message ?: "")
 
     /**
-     * 토큰 만료체크
+     * 토큰 만료체크 로직 구현 필요
      */
     private fun hasReissuedAccessToken(): Boolean = false
 }

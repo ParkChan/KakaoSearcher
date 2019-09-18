@@ -7,27 +7,20 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-class BaseRetrofit{
+class RetrofitBuilder{
 
-    fun <T> getRetrofit(
-        baseUrl: String,
-        headerMap: Map<String, String>,
+    fun <T> init(
+        baseUrl: String = "https://dapi.kakao.com",
+        headerMap: Map<String, String>? = mapOf(),
+        useRxJava : Boolean = false,
         cls: Class<T>
-    ): T = getRetrofit(
+    ): T = getRetrofitBuilder(
         baseUrl,
         getOkHttpClient(headerMap),
-        false
+        useRxJava
     ).create(cls)
 
-//    fun <T> getRetrofitRx(baseUrl: String, headerMap: Map<String, String>, cls: Class<T>): T {
-//        return getRetrofit(baseUrl, getOkHttpClient(headerMap), true).create(cls)
-//    }
-//
-//    fun <T> getRetrofit(baseUrl: String, cls: Class<T>): T {
-//        return getRetrofit(baseUrl, getOkHttpClient(null), false).create(cls)
-//    }
-
-    fun getRetrofit(
+    private fun getRetrofitBuilder(
         baseUrl: String,
         okHttpClient: OkHttpClient,
         useRxJava: Boolean
