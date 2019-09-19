@@ -33,4 +33,5 @@ class RetrofitCallBack<T>(
      * 토큰 만료체크 로직 구현 필요
      */
     private fun hasReissuedAccessToken(): Boolean = false
+
 }

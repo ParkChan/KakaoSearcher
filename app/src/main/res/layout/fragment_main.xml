@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-
     <EditText
         android:id="@+id/et_fragment_main_input_text"
         android:layout_width="0dp"

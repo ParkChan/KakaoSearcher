@@ -1,6 +1,7 @@
 package com.example.kakaosearcher.network.retrofit
 
 import com.example.kakaosearcher.BuildConfig
+import com.example.kakaosearcher.network.NETWORK_CONST_BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -10,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitBuilder{
 
     fun <T> init(
-        baseUrl: String = "https://dapi.kakao.com",
+        baseUrl: String = NETWORK_CONST_BASE_URL,
         headerMap: Map<String, String>? = mapOf(),
         useRxJava : Boolean = false,
         cls: Class<T>
