@@ -25,9 +25,10 @@ class MainFragment : Fragment() {
 
         btn_fragment_main_search.setOnClickListener { view ->
             AddressController().requestAddress(
-                "장지동",
+                et_fragment_main_input_text.text.toString(),
                 object : RetrofitListener<List<AddressModel>> {
                     override fun onSuccess(responseData: List<AddressModel>) {
+
                     }
 
                     override fun onReissuedAccessToken() {
