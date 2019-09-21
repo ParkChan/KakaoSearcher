@@ -1,10 +1,14 @@
 package com.example.kakaosearcher.network.model.resmodel.dto
 
+import com.example.kakaosearcher.network.model.resmodel.AddressModel
 import com.example.kakaosearcher.network.model.resmodel.BaseModel
-import com.example.kakaosearcher.network.model.resmodel.DocumentModel
+import com.example.kakaosearcher.network.model.resmodel.MetaModel
 import com.google.gson.annotations.SerializedName
 
-data class AddressDto(
+class AddressDto(
     @SerializedName("documents")
-    private val dataModel: DocumentModel
+    val addressList: List<AddressModel>,
+
+    @SerializedName("meta")
+    val metaModel: MetaModel
 ) : BaseModel()
