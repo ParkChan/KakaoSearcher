@@ -5,7 +5,7 @@ import com.example.kakaosearcher.network.retrofit.RetrofitCallBack
 import com.example.kakaosearcher.network.retrofit.RetrofitListener
 import com.example.kakaosearcher.network.service.AddressService
 
-class AddressController{
+class AddressController {
 
     fun requestAddress(
         query: String?,

@@ -6,7 +6,7 @@ import retrofit2.Response
 
 class RetrofitCallBack<T>(
     private val retrofitListener: RetrofitListener<T>
-) : Callback<T>{
+) : Callback<T> {
 
     override fun onResponse(
         call: Call<T>,

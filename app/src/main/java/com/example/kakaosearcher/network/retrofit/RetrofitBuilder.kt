@@ -8,12 +8,12 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetrofitBuilder{
+class RetrofitBuilder {
 
     fun <T> init(
         baseUrl: String = NETWORK_CONST_BASE_URL,
         headerMap: Map<String, String>? = mapOf(),
-        useRxJava : Boolean = false,
+        useRxJava: Boolean = false,
         cls: Class<T>
     ): T = getRetrofitBuilder(
         baseUrl,
