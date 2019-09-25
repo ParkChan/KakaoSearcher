@@ -1,4 +1,4 @@
-package com.example.kakaosearcher.view
+package com.example.kakaosearcher.kakaoaddress.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

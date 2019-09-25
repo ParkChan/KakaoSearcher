@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".kakaoaddress.view.MainActivity">
 
     <!-- [what]_[where]_[description] -->
     <fragment
         android:id="@+id/fragment_activity_main_search"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.kakaosearcher.view.MainFragment"
+        android:name="com.example.kakaosearcher.kakaoaddress.view.MainFragment"
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
