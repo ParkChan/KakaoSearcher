@@ -1,7 +1,6 @@
 package com.example.kakaosearcher.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kakaosearcher.R
 import com.example.kakaosearcher.adapter.AddressAdapter
 import com.example.kakaosearcher.controller.AddressController
-import com.example.kakaosearcher.network.model.resmodel.AddressModel
 import com.example.kakaosearcher.network.model.resmodel.dto.AddressDto
 import com.example.kakaosearcher.network.retrofit.RetrofitListener
 import kotlinx.android.synthetic.main.fragment_main.*
