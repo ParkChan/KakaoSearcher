@@ -1,4 +1,4 @@
-package com.example.kakaosearcher.adapter
+package com.example.kakaosearcher.kakaoaddress.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kakaosearcher.R
-import com.example.kakaosearcher.network.model.resmodel.AddressModel
+import com.example.kakaosearcher.kakaoaddress.model.resmodel.AddressModel
 
 class AddressAdapter : RecyclerView.Adapter<AddressAdapter.ViewHolder>() {
     private var addressList: List<AddressModel>? = null
