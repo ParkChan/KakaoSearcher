@@ -29,7 +29,6 @@ class MainFragment : Fragment() , AddressContract.View{
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        
         initAdapter()
         initListener()
     }
