@@ -23,8 +23,8 @@ class MainFragment : Fragment() , AddressContract.View{
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_main, container, false)
 
-    val addressPresenter: AddressPresenter = AddressPresenter(this, AddressRepository())
-    val addressAdapter = AddressAdapter()
+    private val addressPresenter: AddressPresenter = AddressPresenter(this, AddressRepository())
+    private val addressAdapter = AddressAdapter()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -33,23 +33,21 @@ class MainFragment : Fragment() , AddressContract.View{
         initListener()
     }
 
-    fun initAdapter(){
+    private fun initAdapter(){
         val layoutManager = LinearLayoutManager(context)
         rv_fragment_main_list.layoutManager = layoutManager
         rv_fragment_main_list.adapter = addressAdapter
     }
 
-    fun initListener(){
-        btn_fragment_main_search.setOnClickListener { view ->
+    private fun initListener(){
+        btn_fragment_main_search.setOnClickListener {
             addressPresenter.searchAddress(et_fragment_main_input_text.text.toString())
         }
     }
 
     override fun updateAddressList(addressList: List<AddressModel>) {
         Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show()
-        addressList?.run {
-            addressAdapter.setAddressList(addressList)
-        }
+        addressAdapter.setAddressList(addressList)
     }
 
     override fun showErrorMesage(msg: String) {
