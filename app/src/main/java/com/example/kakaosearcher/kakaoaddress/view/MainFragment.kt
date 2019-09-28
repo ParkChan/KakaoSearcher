@@ -18,13 +18,16 @@ import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment() , AddressContract.View{
 
+    override val presenter: AddressContract.Presenter
+        get() = AddressPresenter(this, AddressRepository(AddressDataSource()))
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_main, container, false)
 
-    private val addressPresenter: AddressPresenter = AddressPresenter(this)
+    //private val addressPresenter: AddressPresenter = AddressPresenter(this, AddressRepository(AddressDataSource()))
 
     private val addressAdapter = AddressAdapter()
 
@@ -43,7 +46,7 @@ class MainFragment : Fragment() , AddressContract.View{
 
     private fun initListener(){
         btn_fragment_main_search.setOnClickListener {
-            addressPresenter.searchAddress(et_fragment_main_input_text.text.toString())
+            presenter.searchAddress(et_fragment_main_input_text.text.toString())
         }
     }
 

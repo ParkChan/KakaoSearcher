@@ -1,4 +1,4 @@
-package com.example.kakaosearcher.network.api
+package com.example.kakaosearcher.kakaoaddress.api
 
 import com.example.kakaosearcher.kakaoaddress.model.resmodel.dto.AddressDto
 import retrofit2.Call
