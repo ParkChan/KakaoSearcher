@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kakaosearcher.R
 import com.example.kakaosearcher.kakaoaddress.repository.AddressRepository
 import com.example.kakaosearcher.kakaoaddress.adapter.AddressAdapter
+import com.example.kakaosearcher.kakaoaddress.datasource.AddressDataSource
 import com.example.kakaosearcher.kakaoaddress.model.resmodel.AddressModel
 import com.example.kakaosearcher.kakaoaddress.presenter.AddressContract
 import com.example.kakaosearcher.kakaoaddress.presenter.AddressPresenter
@@ -23,7 +24,8 @@ class MainFragment : Fragment() , AddressContract.View{
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_main, container, false)
 
-    private val addressPresenter: AddressPresenter = AddressPresenter(this, AddressRepository())
+    private val addressPresenter: AddressPresenter = AddressPresenter(this)
+
     private val addressAdapter = AddressAdapter()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
