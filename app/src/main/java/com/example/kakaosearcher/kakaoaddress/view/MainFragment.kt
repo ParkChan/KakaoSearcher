@@ -16,7 +16,7 @@ import com.example.kakaosearcher.kakaoaddress.presenter.AddressContract
 import com.example.kakaosearcher.kakaoaddress.presenter.AddressPresenter
 import kotlinx.android.synthetic.main.fragment_main.*
 
-class MainFragment : Fragment() , AddressContract.View{
+class MainFragment : Fragment(), AddressContract.View {
 
     override val presenter: AddressContract.Presenter
         get() = AddressPresenter(this, AddressRepository(AddressDataSourceImpl()))
@@ -36,13 +36,13 @@ class MainFragment : Fragment() , AddressContract.View{
         initListener()
     }
 
-    private fun initAdapter(){
+    private fun initAdapter() {
         val layoutManager = LinearLayoutManager(context)
         rv_fragment_main_list.layoutManager = layoutManager
         rv_fragment_main_list.adapter = addressAdapter
     }
 
-    private fun initListener(){
+    private fun initListener() {
         btn_fragment_main_search.setOnClickListener {
             presenter.searchAddress(et_fragment_main_input_text.text.toString())
         }
