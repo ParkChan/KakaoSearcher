@@ -18,8 +18,12 @@ import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment(), AddressContract.View {
 
-    override val presenter: AddressContract.Presenter
-        get() = AddressPresenter(this, AddressRepository(AddressDataSourceImpl()))
+    override val presenter: AddressContract.Presenter by lazy {
+        AddressPresenter(
+            this,
+            AddressRepository(AddressDataSourceImpl())
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
