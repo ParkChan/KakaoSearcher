@@ -27,8 +27,6 @@ class MainFragment : Fragment() , AddressContract.View{
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_main, container, false)
 
-    //private val addressPresenter: AddressPresenter = AddressPresenter(this, AddressRepository(AddressDataSourceImpl()))
-
     private val addressAdapter = AddressAdapter()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
