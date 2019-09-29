@@ -1,5 +1,5 @@
 package com.example.kakaosearcher.common
 
-interface BaseViewImpl<T> {
+interface BaseView<T> {
     val presenter: T
 }

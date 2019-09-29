@@ -1,11 +1,11 @@
 package com.example.kakaosearcher.kakaoaddress.presenter
 
-import com.example.kakaosearcher.common.BaseViewImpl
+import com.example.kakaosearcher.common.BaseView
 import com.example.kakaosearcher.kakaoaddress.model.resmodel.AddressModel
 
 interface AddressContract{
 
-    interface View : BaseViewImpl<Presenter> {
+    interface View : BaseView<Presenter> {
         fun updateAddressList(addressList: List<AddressModel>)
         fun showErrorMesage(msg: String)
     }
