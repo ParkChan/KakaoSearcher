@@ -5,7 +5,7 @@ import com.example.kakaosearcher.kakaoaddress.datasource.AddressDataSource
 import com.example.kakaosearcher.kakaoaddress.model.resmodel.dto.AddressDto
 import com.example.kakaosearcher.network.retrofit.RetrofitListener
 
-class AddressRepository constructor(
+class AddressRepository(
     private val addressDataSourceImpl: AddressDataSourceImpl
 ): AddressDataSource{
 
