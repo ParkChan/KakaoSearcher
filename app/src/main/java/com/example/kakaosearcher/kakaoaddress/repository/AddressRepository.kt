@@ -7,9 +7,12 @@ import com.example.kakaosearcher.network.retrofit.RetrofitListener
 
 class AddressRepository(
     private val addressDataSourceImpl: AddressDataSourceImpl
-): AddressDataSource{
+) : AddressDataSource {
 
-    override fun getAddress(query: String?, listener: RetrofitListener<AddressDto>) {
+    override fun getAddress(
+        query: String?,
+        listener: RetrofitListener<AddressDto>
+    ) {
         addressDataSourceImpl.getAddress(query, listener)
     }
 }

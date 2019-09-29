@@ -9,10 +9,9 @@ class AddressDataSourceImpl : AddressDataSource {
     override fun getAddress(
         query: String?,
         listener: RetrofitListener<AddressDto>
-    ) {
-        AddressService()
-            .getAddressService()
-            .getAddress(query = "$query")
-            .enqueue(RetrofitCallBack(listener))
-    }
+    ) = AddressService()
+        .getAddressService()
+        .getAddress(query = "$query")
+        .enqueue(RetrofitCallBack(listener))
+
 }
