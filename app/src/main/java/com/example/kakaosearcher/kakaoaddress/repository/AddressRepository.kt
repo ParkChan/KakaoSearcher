@@ -11,7 +11,5 @@ class AddressRepository(
     override fun getAddress(
         query: String?,
         listener: RetrofitListener<AddressDto>
-    ) {
-        addressDataSource.getAddress(query, listener)
-    }
+    ) = addressDataSource.getAddress(query, listener)
 }
