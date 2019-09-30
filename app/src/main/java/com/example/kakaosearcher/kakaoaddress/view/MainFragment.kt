@@ -10,12 +10,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kakaosearcher.R
 import com.example.kakaosearcher.kakaoaddress.repository.AddressRepository
 import com.example.kakaosearcher.kakaoaddress.adapter.AddressAdapter
+import com.example.kakaosearcher.kakaoaddress.datasource.AddressDataSourceImpl
 import com.example.kakaosearcher.kakaoaddress.model.resmodel.AddressModel
 import com.example.kakaosearcher.kakaoaddress.presenter.AddressContract
 import com.example.kakaosearcher.kakaoaddress.presenter.AddressPresenter
 import kotlinx.android.synthetic.main.fragment_main.*
 
-class MainFragment : Fragment() , AddressContract.View{
+class MainFragment : Fragment(), AddressContract.View {
+
+    override val presenter: AddressContract.Presenter by lazy {
+        AddressPresenter(
+            this,
+            AddressRepository(AddressDataSourceImpl())
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,7 +31,6 @@ class MainFragment : Fragment() , AddressContract.View{
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_main, container, false)
 
-    private val addressPresenter: AddressPresenter = AddressPresenter(this, AddressRepository())
     private val addressAdapter = AddressAdapter()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -33,15 +40,13 @@ class MainFragment : Fragment() , AddressContract.View{
         initListener()
     }
 
-    private fun initAdapter(){
-        val layoutManager = LinearLayoutManager(context)
-        rv_fragment_main_list.layoutManager = layoutManager
+    private fun initAdapter() {
         rv_fragment_main_list.adapter = addressAdapter
     }
 
-    private fun initListener(){
+    private fun initListener() {
         btn_fragment_main_search.setOnClickListener {
-            addressPresenter.searchAddress(et_fragment_main_input_text.text.toString())
+            presenter.searchAddress(et_fragment_main_input_text.text.toString())
         }
     }
 

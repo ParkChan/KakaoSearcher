@@ -1,8 +1,8 @@
-package com.example.kakaosearcher.network.service
+package com.example.kakaosearcher.kakaoaddress.service
 
 import com.example.kakaosearcher.network.NETWORK_CONST_HEADER_AUTHOR_KEY
 import com.example.kakaosearcher.network.NETWORK_CONST_HEADER_REST_API_KEY
-import com.example.kakaosearcher.network.api.ApiAddress
+import com.example.kakaosearcher.kakaoaddress.api.ApiAddress
 import com.example.kakaosearcher.network.retrofit.RetrofitBuilder
 
 class AddressService {
