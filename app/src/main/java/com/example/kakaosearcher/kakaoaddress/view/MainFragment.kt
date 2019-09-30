@@ -41,8 +41,6 @@ class MainFragment : Fragment(), AddressContract.View {
     }
 
     private fun initAdapter() {
-        val layoutManager = LinearLayoutManager(context)
-        rv_fragment_main_list.layoutManager = layoutManager
         rv_fragment_main_list.adapter = addressAdapter
     }
 

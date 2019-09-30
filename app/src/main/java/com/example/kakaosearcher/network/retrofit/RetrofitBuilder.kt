@@ -28,8 +28,9 @@ class RetrofitBuilder {
     ): Retrofit = Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(GsonConverterFactory.create())
-        .also { baseUrl ->
-            if (useRxJava) baseUrl.addCallAdapterFactory(
+        .also {
+            if (useRxJava)
+                it.addCallAdapterFactory(
                 RxJava2CallAdapterFactory.create()
             )
         }

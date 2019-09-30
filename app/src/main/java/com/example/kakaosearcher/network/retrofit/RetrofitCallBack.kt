@@ -1,15 +1,12 @@
 package com.example.kakaosearcher.network.retrofit
 
-import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.Response
 
 class RetrofitCallBack<T>(
     private val retrofitListener: RetrofitListener<T>
-) : Callback<T> {
+) {
 
-    override fun onResponse(
-        call: Call<T>,
+    fun onResponse(
         response: Response<T>
     ) {
         val responseModel = response.body()
@@ -24,8 +21,7 @@ class RetrofitCallBack<T>(
         retrofitListener.onSuccess(responseModel)
     }
 
-    override fun onFailure(
-        call: Call<T>,
+    fun onFailure(
         t: Throwable
     ) = retrofitListener.onNetworkError(t.message ?: "")
 
