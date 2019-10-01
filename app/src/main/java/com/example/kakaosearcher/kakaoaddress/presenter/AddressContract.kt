@@ -12,5 +12,6 @@ interface AddressContract{
 
     interface Presenter {
         fun searchAddress(query: String)
+        fun compositeDisposableDispose()
     }
 }

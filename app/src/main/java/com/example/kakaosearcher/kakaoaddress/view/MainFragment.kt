@@ -59,4 +59,8 @@ class MainFragment : Fragment(), AddressContract.View {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
+    override fun onDestroy() {
+        presenter.compositeDisposableDispose()
+        super.onDestroy()
+    }
 }

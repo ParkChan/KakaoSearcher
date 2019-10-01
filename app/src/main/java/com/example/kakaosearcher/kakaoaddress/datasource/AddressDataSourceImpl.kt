@@ -11,9 +11,10 @@ import io.reactivex.schedulers.Schedulers
 class AddressDataSourceImpl : AddressDataSource {
     override fun getAddress(
         query: String?,
-        listener: RetrofitListener<AddressDto>
+        listener: RetrofitListener<AddressDto>,
+        compositeDisposable: CompositeDisposable
     ) {
-        CompositeDisposable().add(
+        compositeDisposable.add(
             AddressService()
                 .getAddressService()
                 .getAddress(query = "$query")
