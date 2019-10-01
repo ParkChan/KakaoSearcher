@@ -9,6 +9,8 @@ class AddressService {
     fun getAddressService(): ApiAddress = RetrofitBuilder().init(
         headerMap = mapOf(
             NETWORK_CONST_HEADER_AUTHOR_KEY to NETWORK_CONST_HEADER_REST_API_KEY
-        ), useRxJava = true, cls = ApiAddress::class.java
+        ),
+        useRxJava = true,
+        cls = ApiAddress::class.java
     )
 }
