@@ -60,7 +60,7 @@ class MainFragment : Fragment(), AddressContract.View {
     }
 
     override fun onDestroy() {
-        presenter.compositeDisposableDispose()
+        presenter.dispose()
         super.onDestroy()
     }
 }
