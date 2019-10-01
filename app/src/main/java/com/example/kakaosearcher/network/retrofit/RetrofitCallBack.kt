@@ -1,24 +1,19 @@
 package com.example.kakaosearcher.network.retrofit
 
-import retrofit2.Response
-
 class RetrofitCallBack<T>(
     private val retrofitListener: RetrofitListener<T>
 ) {
 
-    fun onResponse(
-        response: Response<T>
-    ) {
-        val responseModel = response.body()
-        if (responseModel == null) {
-            retrofitListener.onFail(response.message())
+    fun onResponse(responseData: T) {
+        if (responseData == null) {
+            retrofitListener.onFail("responseData is null")
             return
         }
         if (hasReissuedAccessToken()) {
             retrofitListener.onReissuedAccessToken()
             return
         }
-        retrofitListener.onSuccess(responseModel)
+        retrofitListener.onSuccess(responseData)
     }
 
     fun onFailure(

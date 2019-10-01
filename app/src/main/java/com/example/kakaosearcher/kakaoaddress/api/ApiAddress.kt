@@ -13,5 +13,5 @@ interface ApiAddress {
         @Query("query") query: String,
         @Query("page") page: Int = 1,
         @Query("size") size: Int = 30
-    ): Single<Response<AddressDto>>
+    ): Single<AddressDto>
 }
