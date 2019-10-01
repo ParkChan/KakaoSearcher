@@ -29,10 +29,9 @@ class RetrofitBuilder {
         .baseUrl(baseUrl)
         .addConverterFactory(GsonConverterFactory.create())
         .also {
-            if (useRxJava)
-                it.addCallAdapterFactory(
-                RxJava2CallAdapterFactory.create()
-            )
+            if (useRxJava){
+                it.addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            }
         }
         .client(okHttpClient)
         .build()
