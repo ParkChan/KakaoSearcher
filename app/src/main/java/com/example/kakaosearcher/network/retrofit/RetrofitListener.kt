@@ -4,5 +4,5 @@ interface RetrofitListener<T> {
     fun onSuccess(responseData: T)
     fun onReissuedAccessToken()
     fun onFail(msg: String)
-    fun onNetworkError(msg: String)
+    fun onNetworkError(t: Throwable)
 }

@@ -28,8 +28,8 @@ class AddressPresenter(
                 addressView.showErrorMesage(msg)
             }
 
-            override fun onNetworkError(msg: String) {
-                addressView.showErrorMesage(msg)
+            override fun onNetworkError(t: Throwable) {
+                addressView.showErrorMesage(t.message.toString())
             }
         })
 
