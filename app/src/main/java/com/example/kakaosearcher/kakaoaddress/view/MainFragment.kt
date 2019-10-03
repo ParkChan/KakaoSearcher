@@ -19,8 +19,8 @@ class MainFragment : Fragment(), AddressContract.View {
 
     override val presenter: AddressContract.Presenter = AddressPresenter(
             this,
-            AddressRepository(AddressDataSourceImpl())
-        )
+        AddressRepository(AddressDataSourceImpl())
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,

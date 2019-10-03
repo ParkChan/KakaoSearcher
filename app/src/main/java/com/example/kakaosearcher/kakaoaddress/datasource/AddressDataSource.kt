@@ -1,13 +1,13 @@
 package com.example.kakaosearcher.kakaoaddress.datasource
 
-import com.example.kakaosearcher.network.retrofit.RetrofitCallBack
+import com.example.kakaosearcher.network.retrofit.CallBackListener
 import io.reactivex.disposables.Disposable
 
-interface AddressDataSource<T>{
+interface AddressDataSource<T> {
 
     fun getAddress(
         query: String?,
-        retrofitCallBack: RetrofitCallBack<T>
-    ):Disposable
+        callBackListener: CallBackListener<T>
+    ): Disposable
 
 }
