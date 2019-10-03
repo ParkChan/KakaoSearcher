@@ -11,9 +11,7 @@ class AddressPresenter(
     private val addressRepository: AddressRepository
 ) : AddressContract.Presenter {
 
-    private val compositeDisposable: CompositeDisposable by lazy {
-        CompositeDisposable()
-    }
+    private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     private val retrofitCallBack: RetrofitCallBack<AddressDto> =
         RetrofitCallBack(object : RetrofitListener<AddressDto> {
@@ -34,11 +32,10 @@ class AddressPresenter(
         })
 
     override fun searchAddress(query: String) {
-        addressRepository.getAddress(
+        compositeDisposable.add(addressRepository.getAddress(
             query,
-            retrofitCallBack,
-            compositeDisposable
-        )
+            retrofitCallBack
+        ))
     }
 
     override fun dispose() {
