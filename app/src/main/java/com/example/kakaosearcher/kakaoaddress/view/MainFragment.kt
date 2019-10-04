@@ -6,24 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kakaosearcher.R
-import com.example.kakaosearcher.kakaoaddress.repository.AddressRepository
 import com.example.kakaosearcher.kakaoaddress.adapter.AddressAdapter
 import com.example.kakaosearcher.kakaoaddress.datasource.AddressDataSourceImpl
 import com.example.kakaosearcher.kakaoaddress.model.resmodel.AddressModel
 import com.example.kakaosearcher.kakaoaddress.presenter.AddressContract
 import com.example.kakaosearcher.kakaoaddress.presenter.AddressPresenter
+import com.example.kakaosearcher.kakaoaddress.repository.AddressRepository
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment(), AddressContract.View {
 
-    override val presenter: AddressContract.Presenter by lazy {
-        AddressPresenter(
+    override val presenter: AddressContract.Presenter = AddressPresenter(
             this,
-            AddressRepository(AddressDataSourceImpl())
-        )
-    }
+        AddressRepository(AddressDataSourceImpl())
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,4 +56,8 @@ class MainFragment : Fragment(), AddressContract.View {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
+    override fun onDestroy() {
+        presenter.dispose()
+        super.onDestroy()
+    }
 }
