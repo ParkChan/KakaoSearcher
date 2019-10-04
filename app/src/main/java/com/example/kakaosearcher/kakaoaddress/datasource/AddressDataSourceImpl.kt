@@ -18,12 +18,8 @@ class AddressDataSourceImpl : AddressDataSource<AddressDto> {
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe({
-            if (it == null) {
-                callBackListener.onFail("error")
-            } else {
-                callBackListener.onSuccess(it)
-            }
+            callBackListener.onSuccess(it)
         }, {
-            callBackListener.onNetworkError(it)
+            callBackListener.onFail(it)
         })
 }

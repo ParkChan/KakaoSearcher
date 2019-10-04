@@ -18,12 +18,8 @@ class AddressRepository(
                 callBackListener.onSuccess(responseData)
             }
 
-            override fun onFail(msg: String) {
-                callBackListener.onFail(msg)
-            }
-
-            override fun onNetworkError(t: Throwable) {
-                callBackListener.onNetworkError(t)
+            override fun onFail(t: Throwable) {
+                callBackListener.onFail(t)
             }
         }
     )
