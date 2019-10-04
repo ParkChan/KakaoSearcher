@@ -25,16 +25,12 @@ class AddressPresenter(
         compositeDisposable.dispose()
     }
 
-    override fun onSuccess(responseData: AddressDto) {
+    override fun onSuccess(responseData: AddressDto) =
         addressView.updateAddressList(responseData.addressList)
-    }
 
-    override fun onFail(msg: String) {
-        addressView.showErrorMesage(msg)
-    }
+    override fun onFail(msg: String) = addressView.showErrorMesage(msg)
 
-    override fun onNetworkError(t: Throwable) {
-        addressView.showErrorMesage(t.message.toString())
-    }
+    override fun onNetworkError(t: Throwable) = addressView.showErrorMesage(t.message.toString())
+
 
 }
