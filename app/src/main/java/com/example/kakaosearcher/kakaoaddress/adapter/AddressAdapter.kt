@@ -14,6 +14,7 @@ class AddressAdapter : RecyclerView.Adapter<AddressAdapter.ViewHolder>() {
     fun setAddressList(addressList: List<AddressModel>) {
         this.addressList = addressList
         notifyDataSetChanged()
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
