@@ -1,7 +1,7 @@
 package com.example.kakaosearcher.kakaoaddress.repository
 
 import com.example.kakaosearcher.kakaoaddress.datasource.AddressDataSource
-import com.example.kakaosearcher.kakaoaddress.model.resmodel.dto.AddressDto
+import com.example.kakaosearcher.kakaoaddress.model.dto.AddressDto
 import com.example.kakaosearcher.network.retrofit.CallBackListener
 
 class AddressRepository(

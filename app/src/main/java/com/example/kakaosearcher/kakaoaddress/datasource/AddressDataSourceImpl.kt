@@ -1,6 +1,6 @@
 package com.example.kakaosearcher.kakaoaddress.datasource
 
-import com.example.kakaosearcher.kakaoaddress.model.resmodel.dto.AddressDto
+import com.example.kakaosearcher.kakaoaddress.model.dto.AddressDto
 import com.example.kakaosearcher.kakaoaddress.service.AddressService
 import com.example.kakaosearcher.network.retrofit.CallBackListener
 import io.reactivex.android.schedulers.AndroidSchedulers

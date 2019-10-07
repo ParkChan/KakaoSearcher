@@ -1,6 +1,6 @@
 package com.example.kakaosearcher.kakaoaddress.api
 
-import com.example.kakaosearcher.kakaoaddress.model.resmodel.dto.AddressDto
+import com.example.kakaosearcher.kakaoaddress.model.dto.AddressDto
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

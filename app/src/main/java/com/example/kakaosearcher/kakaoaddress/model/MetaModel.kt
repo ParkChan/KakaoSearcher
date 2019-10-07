@@ -1,4 +1,4 @@
-package com.example.kakaosearcher.kakaoaddress.model.resmodel
+package com.example.kakaosearcher.kakaoaddress.model
 
 import com.google.gson.annotations.SerializedName
 

@@ -2,7 +2,7 @@ package com.example.kakaosearcher.kakaoaddress.presenter
 
 import com.example.kakaosearcher.common.BasePresenter
 import com.example.kakaosearcher.common.BaseView
-import com.example.kakaosearcher.kakaoaddress.model.resmodel.AddressModel
+import com.example.kakaosearcher.kakaoaddress.model.AddressModel
 
 interface AddressContract {
 

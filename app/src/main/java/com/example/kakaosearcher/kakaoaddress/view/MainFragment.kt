@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.kakaosearcher.R
 import com.example.kakaosearcher.kakaoaddress.adapter.AddressAdapter
 import com.example.kakaosearcher.kakaoaddress.datasource.AddressDataSourceImpl
-import com.example.kakaosearcher.kakaoaddress.model.resmodel.AddressModel
+import com.example.kakaosearcher.kakaoaddress.model.AddressModel
 import com.example.kakaosearcher.kakaoaddress.presenter.AddressContract
 import com.example.kakaosearcher.kakaoaddress.presenter.AddressPresenter
 import com.example.kakaosearcher.kakaoaddress.repository.AddressRepository
