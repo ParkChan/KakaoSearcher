@@ -1,32 +1,37 @@
 package com.example.kakaosearcher.kakaoaddress.view
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.example.kakaosearcher.R
+import com.example.kakaosearcher.common.BaseFragment
+import com.example.kakaosearcher.databinding.FragmentMainBinding
 import com.example.kakaosearcher.kakaoaddress.adapter.AddressAdapter
 import com.example.kakaosearcher.kakaoaddress.datasource.AddressDataSourceImpl
-import com.example.kakaosearcher.kakaoaddress.model.AddressModel
-import com.example.kakaosearcher.kakaoaddress.presenter.AddressContract
-import com.example.kakaosearcher.kakaoaddress.presenter.AddressPresenter
 import com.example.kakaosearcher.kakaoaddress.repository.AddressRepository
+import com.example.kakaosearcher.kakaoaddress.viewmodel.AddressViewModel
 import kotlinx.android.synthetic.main.fragment_main.*
 
-class MainFragment : Fragment(), AddressContract.View {
+class MainFragment : BaseFragment<FragmentMainBinding>() {
+    override fun layoutRes(): Int {
+        return R.layout.fragment_main
+    }
 
-    override val presenter: AddressContract.Presenter = AddressPresenter(
+    @Suppress("UNCHECKED_CAST")
+    override fun initBindViewModel() {
+        binding.vm = ViewModelProviders.of(
             this,
-        AddressRepository(AddressDataSourceImpl())
-    )
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_main, container, false)
+            object : ViewModelProvider.Factory {
+                override fun <T : ViewModel?> create(modelClass: Class<T>): T =
+                    AddressViewModel(
+                        AddressRepository(AddressDataSourceImpl())
+                    ) as T
+            }
+        )[AddressViewModel::class.java]
+    }
 
     private val addressAdapter = AddressAdapter()
 
@@ -43,21 +48,19 @@ class MainFragment : Fragment(), AddressContract.View {
 
     private fun initListener() {
         btn_fragment_main_search.setOnClickListener {
-            presenter.searchAddress(et_fragment_main_input_text.text.toString())
+            binding.run { vm?.searchAddress(et_fragment_main_input_text.text.toString()) }
         }
-    }
 
-    override fun updateAddressList(addressList: List<AddressModel>) {
-        Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show()
-        addressAdapter.setAddressList(addressList)
-    }
+        binding.vm?.addressList?.observe(viewLifecycleOwner, Observer { addressList ->
+            addressAdapter.setAddressList(addressList)
+        })
 
-    override fun showErrorMesage(msg: String) {
-        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onDestroy() {
-        presenter.dispose()
-        super.onDestroy()
+        binding.vm?.throwable?.observe(viewLifecycleOwner, Observer { t ->
+            Toast.makeText(
+                activity,
+                t.message,
+                Toast.LENGTH_SHORT
+            ).show()
+        })
     }
 }
