@@ -21,7 +21,6 @@ abstract class BaseFragment<BINDING : ViewDataBinding>(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //return super.onCreateView(inflater, container, savedInstanceState)
         binding = DataBindingUtil.inflate(
             inflater,
             layoutResId,
