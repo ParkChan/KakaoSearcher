@@ -5,7 +5,6 @@
     tools:context=".kakaoaddress.view.MainActivity">
 
     <data>
-
         <variable
             name="vm"
             type="com.example.kakaosearcher.kakaoaddress.viewmodel.AddressViewModel" />
@@ -19,9 +18,11 @@
             android:id="@+id/et_fragment_main_input_text"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:autofillHints="@string/fragment_main_input_address"
             android:background="@null"
             android:gravity="end|center_vertical"
             android:hint="@string/fragment_main_input_address"
+            android:inputType="text"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:singleLine="true"
