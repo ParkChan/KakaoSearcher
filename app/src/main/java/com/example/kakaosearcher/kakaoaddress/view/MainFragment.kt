@@ -13,13 +13,10 @@ import com.example.kakaosearcher.kakaoaddress.adapter.AddressAdapter
 import com.example.kakaosearcher.kakaoaddress.datasource.AddressDataSourceImpl
 import com.example.kakaosearcher.kakaoaddress.repository.AddressRepository
 import com.example.kakaosearcher.kakaoaddress.viewmodel.AddressViewModel
-import kotlinx.android.synthetic.main.fragment_main.*
 
-class MainFragment : BaseFragment<FragmentMainBinding>() {
-    override fun layoutRes(): Int {
-        return R.layout.fragment_main
-    }
-
+class MainFragment : BaseFragment<FragmentMainBinding>(
+    R.layout.fragment_main
+) {
     @Suppress("UNCHECKED_CAST")
     override fun initBindViewModel() {
         binding.vm = ViewModelProviders.of(
@@ -43,14 +40,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
 
     private fun initAdapter() {
-        rv_fragment_main_list.adapter = addressAdapter
+        binding.rvFragmentMainList.adapter = addressAdapter
     }
 
     private fun initListener() {
-        btn_fragment_main_search.setOnClickListener {
-            binding.run { vm?.searchAddress(et_fragment_main_input_text.text.toString()) }
-        }
-
         binding.vm?.addressList?.observe(viewLifecycleOwner, Observer { addressList ->
             addressAdapter.setAddressList(addressList)
         })

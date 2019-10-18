@@ -26,6 +26,7 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:singleLine="true"
+            android:text="@={vm.inputText}"
             app:layout_constraintEnd_toStartOf="@id/btn_fragment_main_search"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -35,6 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:text="@string/fragment_main_search_button_text"
+            android:onClick="@{vm::onClickSearch}"
             app:layout_constraintBottom_toBottomOf="@id/et_fragment_main_input_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

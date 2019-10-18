@@ -1,5 +1,6 @@
 package com.example.kakaosearcher.kakaoaddress.viewmodel
 
+import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.kakaosearcher.kakaoaddress.model.AddressModel
@@ -14,8 +15,9 @@ class AddressViewModel(private val addressRepository: AddressRepository) : ViewM
 
     val addressList = MutableLiveData<List<AddressModel>>()
     var throwable = MutableLiveData<Throwable>()
+    var inputText: String = ""
 
-    fun searchAddress(query: String) {
+    private fun searchAddress(query: String) {
         compositeDisposable.add(
             addressRepository.getAddress(
                 query,
@@ -30,6 +32,10 @@ class AddressViewModel(private val addressRepository: AddressRepository) : ViewM
                 }
             )
         )
+    }
+
+    fun onClickSearch(view: View) {
+        searchAddress(inputText)
     }
 
     override fun onCleared() {
