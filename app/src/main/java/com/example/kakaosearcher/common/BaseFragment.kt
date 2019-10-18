@@ -14,7 +14,7 @@ abstract class BaseFragment<BINDING : ViewDataBinding>(
     private val layoutResId: Int
 ) : Fragment() {
     abstract fun initBindViewModel()
-    lateinit var binding: BINDING
+    protected lateinit var binding: BINDING
 
     override fun onCreateView(
         inflater: LayoutInflater,
