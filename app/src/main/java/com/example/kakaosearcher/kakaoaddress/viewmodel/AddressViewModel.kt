@@ -36,9 +36,4 @@ class AddressViewModel(private val addressRepository: AddressRepository) : ViewM
         compositeDisposable.dispose()
         super.onCleared()
     }
-
-//    fun onSuccess(responseData: AddressDto) =
-//        addressView.updateAddressList(responseData.addressList)
-//
-//    fun onFail(t: Throwable) = addressView.showErrorMesage(t.message.toString())
 }
