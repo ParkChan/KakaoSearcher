@@ -20,7 +20,7 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:background="@null"
-            android:gravity="right|center_vertical"
+            android:gravity="end|center_vertical"
             android:hint="@string/fragment_main_input_address"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
