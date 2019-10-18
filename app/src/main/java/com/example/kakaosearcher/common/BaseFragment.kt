@@ -9,13 +9,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 
-abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
-
+abstract class BaseFragment<BINDING : ViewDataBinding>(
     @LayoutRes
-    abstract fun layoutRes(): Int
-
+    private val layoutResId: Int
+) : Fragment() {
     abstract fun initBindViewModel()
-    lateinit var binding: Binding
+    lateinit var binding: BINDING
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,14 +24,12 @@ abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
         //return super.onCreateView(inflater, container, savedInstanceState)
         binding = DataBindingUtil.inflate(
             inflater,
-            layoutRes(),
+            layoutResId,
             container,
             false
         )
         initBindViewModel()
         binding.lifecycleOwner = this
-
         return binding.root
     }
-
 }
