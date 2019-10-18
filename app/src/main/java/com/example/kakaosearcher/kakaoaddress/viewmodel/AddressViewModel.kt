@@ -33,7 +33,9 @@ class AddressViewModel(private val addressRepository: AddressRepository) : ViewM
     }
 
     override fun onCleared() {
-        compositeDisposable.dispose()
+        if (compositeDisposable.isDisposed) {
+            compositeDisposable.dispose()
+        }
         super.onCleared()
     }
 }
