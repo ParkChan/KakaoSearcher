@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".kakaoaddress.view.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -12,7 +11,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".kakaoaddress.view.MainActivity">
 
         <EditText
             android:id="@+id/et_fragment_main_input_text"
@@ -30,13 +30,13 @@
             app:layout_constraintEnd_toStartOf="@id/btn_fragment_main_search"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
+        <!--android:onClick="@{vm::onClickSearch}"-->
         <Button
             android:id="@+id/btn_fragment_main_search"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
+            android:onClick="@{() -> vm.onClickSearch(vm.inputText)}"
             android:text="@string/fragment_main_search_button_text"
-            android:onClick="@{vm::onClickSearch}"
             app:layout_constraintBottom_toBottomOf="@id/et_fragment_main_input_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -48,8 +48,9 @@
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_fragment_main_input_text" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_fragment_main_input_text"
+            replaceItems="@{vm.marketPriceList}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

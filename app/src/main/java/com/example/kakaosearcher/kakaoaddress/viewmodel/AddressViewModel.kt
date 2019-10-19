@@ -1,6 +1,5 @@
 package com.example.kakaosearcher.kakaoaddress.viewmodel
 
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.kakaosearcher.kakaoaddress.model.AddressModel
@@ -34,8 +33,8 @@ class AddressViewModel(private val addressRepository: AddressRepository) : ViewM
         )
     }
 
-    fun onClickSearch(view: View) {
-        searchAddress(inputText)
+    fun onClickSearch(query: String) {
+        searchAddress(query)
     }
 
     override fun onCleared() {
