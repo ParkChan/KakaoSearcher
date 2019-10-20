@@ -42,12 +42,10 @@ open class AddressAdapter :
         }
     }
 
-    override fun getItemCount(): Int {
-        return this.addressList.size
-    }
+    override fun getItemCount(): Int = addressList.size
 
     fun replaceListData(list: List<AddressModel>) {
-        addressList = list
+        this.addressList = list
         notifyDataSetChanged()
     }
 }
