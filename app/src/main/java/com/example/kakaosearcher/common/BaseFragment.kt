@@ -15,6 +15,7 @@ abstract class BaseFragment<BINDING : ViewDataBinding>(
 ) : Fragment() {
     abstract fun initBindViewModel()
     protected lateinit var binding: BINDING
+        private set
 
     override fun onCreateView(
         inflater: LayoutInflater,
