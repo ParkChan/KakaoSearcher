@@ -1,7 +1,6 @@
 package com.example.kakaosearcher.kakaoaddress.view
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -44,11 +43,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
         })
 
         binding.vm?.throwable?.observe(viewLifecycleOwner, Observer { t ->
-            Toast.makeText(
-                activity,
-                t.message,
-                Toast.LENGTH_SHORT
-            ).show()
+            showToast(t.message)
         })
     }
 

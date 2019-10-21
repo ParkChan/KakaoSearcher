@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -32,4 +33,10 @@ abstract class BaseFragment<BINDING : ViewDataBinding>(
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
+
+    fun showToast(msg: String?) = Toast.makeText(
+        activity,
+        msg,
+        Toast.LENGTH_SHORT
+    ).show()
 }
