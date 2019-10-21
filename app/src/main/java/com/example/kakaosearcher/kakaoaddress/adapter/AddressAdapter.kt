@@ -27,9 +27,7 @@ open class AddressAdapter :
 
     override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
         val item = addressList[position]
-        holder.apply {
-            bind(item)
-        }
+        holder.bind(item)
     }
 
     inner class AddressViewHolder(private val binding: ItemAddressBinding) :
