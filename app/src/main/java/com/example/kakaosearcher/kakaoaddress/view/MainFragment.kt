@@ -37,7 +37,19 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
         super.onActivityCreated(savedInstanceState)
 
         initAdapter()
-        initListener()
+
+        binding.vm?.addressList?.observe(viewLifecycleOwner, Observer { addressList ->
+            val list: List<AddressModel> = addressList
+            adapter.replaceListData(list)
+        })
+
+        binding.vm?.throwable?.observe(viewLifecycleOwner, Observer { t ->
+            Toast.makeText(
+                activity,
+                t.message,
+                Toast.LENGTH_SHORT
+            ).show()
+        })
     }
 
     private fun initAdapter() {
@@ -53,20 +65,5 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
         list.add(AddressModel("서울 테스트 5"))
         list.add(AddressModel("서울 테스트 6"))
         this.adapter.replaceListData(list)
-    }
-
-    private fun initListener() {
-        binding.vm?.addressList?.observe(viewLifecycleOwner, Observer { addressList ->
-            val list: List<AddressModel> = addressList
-            adapter.replaceListData(list)
-        })
-
-        binding.vm?.throwable?.observe(viewLifecycleOwner, Observer { t ->
-            Toast.makeText(
-                activity,
-                t.message,
-                Toast.LENGTH_SHORT
-            ).show()
-        })
     }
 }
