@@ -12,7 +12,7 @@ import com.example.kakaosearcher.kakaoaddress.model.AddressModel
 open class AddressAdapter :
     RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() {
 
-    private var addressList: List<AddressModel> = mutableListOf()
+    private val addressList: MutableList<AddressModel> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressViewHolder {
         return AddressViewHolder(
@@ -41,7 +41,8 @@ open class AddressAdapter :
     override fun getItemCount(): Int = addressList.size
 
     fun replaceListData(list: List<AddressModel>) {
-        this.addressList = list
+        addressList.clear()
+        addressList.addAll(list)
         notifyDataSetChanged()
     }
 }
