@@ -31,7 +31,7 @@
             app:layout_constraintEnd_toStartOf="@id/btn_fragment_main_search"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        <!--android:onClick="@{vm::onClickSearch}"-->
+
         <Button
             android:id="@+id/btn_fragment_main_search"
             android:layout_width="wrap_content"
