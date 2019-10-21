@@ -34,7 +34,7 @@ open class AddressAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: AddressModel) {
-            binding.setVariable(BR.addressModel, item)
+            item.run { binding.setVariable(BR.addressModel, item) }
         }
     }
 
