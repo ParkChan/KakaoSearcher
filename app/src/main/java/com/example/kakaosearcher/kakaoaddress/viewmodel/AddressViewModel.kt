@@ -10,7 +10,7 @@ import io.reactivex.disposables.CompositeDisposable
 
 class AddressViewModel(private val addressRepository: AddressRepository) : ViewModel() {
 
-    private val compositeDisposable: CompositeDisposable = CompositeDisposable()
+    private val compositeDisposable = CompositeDisposable()
 
     val addressList = MutableLiveData<List<AddressModel>>()
     var throwable = MutableLiveData<Throwable>()
