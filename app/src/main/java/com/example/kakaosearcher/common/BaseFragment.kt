@@ -28,7 +28,7 @@ abstract class BaseFragment<BINDING : ViewDataBinding>(
             false
         )
         initBindViewModel()
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 }
