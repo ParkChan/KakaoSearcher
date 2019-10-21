@@ -18,6 +18,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
     R.layout.fragment_main
 ) {
     val adapter = AddressAdapter()
+
     @Suppress("UNCHECKED_CAST")
     override fun initBindViewModel() {
         binding.vm = ViewModelProviders.of(
