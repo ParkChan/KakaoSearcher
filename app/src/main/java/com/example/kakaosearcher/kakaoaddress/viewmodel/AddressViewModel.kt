@@ -16,6 +16,13 @@ class AddressViewModel(private val addressRepository: AddressRepository) : ViewM
     var throwable = MutableLiveData<Throwable>()
     var inputText: String = ""
 
+    override fun onCleared() {
+        if (compositeDisposable.isDisposed) {
+            compositeDisposable.dispose()
+        }
+        super.onCleared()
+    }
+
     private fun searchAddress(query: String) {
         compositeDisposable.add(
             addressRepository.getAddress(
@@ -37,10 +44,5 @@ class AddressViewModel(private val addressRepository: AddressRepository) : ViewM
         searchAddress(query)
     }
 
-    override fun onCleared() {
-        if (compositeDisposable.isDisposed) {
-            compositeDisposable.dispose()
-        }
-        super.onCleared()
-    }
+
 }
