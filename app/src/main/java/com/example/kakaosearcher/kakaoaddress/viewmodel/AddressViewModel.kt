@@ -17,7 +17,7 @@ class AddressViewModel(private val addressRepository: AddressRepository) : ViewM
     var inputText: String = ""
 
     override fun onCleared() {
-        if (compositeDisposable.isDisposed) {
+        if (!compositeDisposable.isDisposed) {
             compositeDisposable.dispose()
         }
         super.onCleared()
