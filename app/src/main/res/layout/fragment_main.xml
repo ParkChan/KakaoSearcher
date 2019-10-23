@@ -27,7 +27,7 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:singleLine="true"
-            android:text="@={vm.inputText}"
+            android:addTextChangedListener="@{vm.watcher}"
             app:layout_constraintEnd_toStartOf="@id/btn_fragment_main_search"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
