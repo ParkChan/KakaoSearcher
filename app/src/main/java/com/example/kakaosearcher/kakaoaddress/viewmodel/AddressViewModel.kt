@@ -1,7 +1,5 @@
 package com.example.kakaosearcher.kakaoaddress.viewmodel
 
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.lifecycle.MutableLiveData
 import com.example.kakaosearcher.common.BaseViewModel
 import com.example.kakaosearcher.kakaoaddress.model.AddressModel
@@ -14,7 +12,6 @@ class AddressViewModel(private val addressRepository: AddressRepository) : BaseV
 
     val addressList = MutableLiveData<List<AddressModel>>()
     val throwable = MutableLiveData<Throwable>()
-    var inputText: String = ""
 
     private fun searchAddress(query: String) {
         compositeDisposable.add(
@@ -35,14 +32,5 @@ class AddressViewModel(private val addressRepository: AddressRepository) : BaseV
 
     fun onClickSearch(query: String) {
         searchAddress(query)
-    }
-
-    val watcher: TextWatcher = object : TextWatcher {
-        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-            inputText = s.toString()
-        }
-
-        override fun afterTextChanged(s: Editable) {}
     }
 }
