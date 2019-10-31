@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.example.kakaosearcher.kakaoaddress.viewmodel.AddressViewModel" />
@@ -45,6 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scrollbars="vertical"
+            app:data="@{vm.addressList}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -16,7 +16,6 @@ import com.example.kakaosearcher.kakaoaddress.viewmodel.AddressViewModel
 class MainFragment : BaseFragment<FragmentMainBinding>(
     R.layout.fragment_main
 ) {
-    val adapter = AddressAdapter()
 
     @Suppress("UNCHECKED_CAST")
     override fun initBindViewModel() {
@@ -35,10 +34,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
         super.onActivityCreated(savedInstanceState)
 
         initAdapter()
-        binding.vm?.addressList?.observe(viewLifecycleOwner, Observer { addressList ->
-            adapter.replaceListData(addressList)
-        })
-
         binding.vm?.throwable?.observe(viewLifecycleOwner, Observer { t ->
             showToast(t.message)
         })
@@ -46,10 +41,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
 
     override fun onStop() {
         super.onStop()
-        binding.vm.compositeDisposableCleard()
+        binding.vm?.compositeDisposableCleard()
     }
 
     private fun initAdapter() {
-        binding.rvFragmentMainList.adapter = this.adapter
+        binding.rvFragmentMainList.adapter = AddressAdapter()
     }
 }
