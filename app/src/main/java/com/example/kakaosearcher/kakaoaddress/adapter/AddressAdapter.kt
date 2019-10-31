@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kakaosearcher.BR
 import com.example.kakaosearcher.R
 import com.example.kakaosearcher.databinding.ItemAddressBinding
-import com.example.kakaosearcher.kakaoaddress.model.AddressModel
+import com.example.kakaosearcher.kakaoaddress.model.response.AddressModel
 
 open class AddressAdapter :
     RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() {

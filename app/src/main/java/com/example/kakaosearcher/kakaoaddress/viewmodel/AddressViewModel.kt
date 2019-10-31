@@ -2,7 +2,7 @@ package com.example.kakaosearcher.kakaoaddress.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.example.kakaosearcher.common.BaseViewModel
-import com.example.kakaosearcher.kakaoaddress.model.AddressModel
+import com.example.kakaosearcher.kakaoaddress.model.response.AddressModel
 import com.example.kakaosearcher.kakaoaddress.model.dto.AddressDto
 import com.example.kakaosearcher.kakaoaddress.repository.AddressRepository
 import com.example.kakaosearcher.network.retrofit.CallBackListener
@@ -19,7 +19,9 @@ class AddressViewModel(private val addressRepository: AddressRepository) : BaseV
                 query,
                 object : CallBackListener<AddressDto> {
                     override fun onSuccess(responseData: AddressDto) {
-                        addressList.value = responseData.addressList
+                        responseData.addressList?.apply {
+                            addressList.value = this
+                        }
                     }
 
                     override fun onFail(t: Throwable) {

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="addressModel"
-            type="com.example.kakaosearcher.kakaoaddress.model.AddressModel" />
+            type="com.example.kakaosearcher.kakaoaddress.model.response.AddressModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
