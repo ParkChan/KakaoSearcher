@@ -35,7 +35,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
         super.onActivityCreated(savedInstanceState)
 
         initAdapter()
-
         binding.vm?.addressList?.observe(viewLifecycleOwner, Observer { addressList ->
             adapter.replaceListData(addressList)
         })
@@ -43,6 +42,11 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
         binding.vm?.throwable?.observe(viewLifecycleOwner, Observer { t ->
             showToast(t.message)
         })
+    }
+
+    override fun onStop() {
+        super.onStop()
+        binding.vm.compositeDisposableCleard()
     }
 
     private fun initAdapter() {
