@@ -34,11 +34,11 @@ class AddressAdapter :
 
     override fun getItemCount(): Int = addressList.size
 
-    override fun setData(data: List<AddressModel>?) {
-        if (data != null) {
+    override fun setData(items: List<AddressModel>?) {
+        if (items != null) {
             addressList.run {
                 clear()
-                addAll(data)
+                addAll(items)
             }
         }
     }
