@@ -7,7 +7,7 @@ abstract class BaseViewModel : ViewModel() {
 
     protected val compositeDisposable = CompositeDisposable()
 
-    fun compositeDisposableCleard(){
+    fun clearCompositeDisposable() {
         compositeDisposable.clear()
     }
 

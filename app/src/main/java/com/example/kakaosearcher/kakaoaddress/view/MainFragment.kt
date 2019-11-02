@@ -41,7 +41,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
 
     override fun onStop() {
         super.onStop()
-        binding.vm?.compositeDisposableCleard()
+        binding.vm?.clearCompositeDisposable()
     }
 
     private fun initAdapter() {
