@@ -29,9 +29,9 @@ class AddressViewModel(private val addressRepository: AddressRepository) : BaseV
                         responseData.addressList?.run {
                             val list = mutableListOf<AddressData>()
                             for (position in 0 until size) {
-                                val data = AddressData(get(position).addressName)
-                                list.apply {
-                                    add(data)
+                                get(position).addressName?.run {
+                                    val data = AddressData(this)
+                                    list.add(data)
                                 }
                             }
                             _addressList.value = list
