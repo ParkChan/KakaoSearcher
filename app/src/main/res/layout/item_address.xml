@@ -4,8 +4,8 @@
 
     <data>
         <variable
-            name="addressModel"
-            type="com.example.kakaosearcher.kakaoaddress.model.response.AddressModel" />
+            name="addressData"
+            type="com.example.kakaosearcher.kakaoaddress.model.data.AddressData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
             android:gravity="center_vertical|start"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:text="@{addressModel.addressName}"
+            android:text="@{addressData.addressName}"
             android:textColor="#000000"
             android:background="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"

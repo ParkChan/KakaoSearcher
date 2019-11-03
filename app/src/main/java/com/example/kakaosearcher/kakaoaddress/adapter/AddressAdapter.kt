@@ -8,13 +8,13 @@ import com.example.kakaosearcher.BR
 import com.example.kakaosearcher.R
 import com.example.kakaosearcher.common.BindableAdapter
 import com.example.kakaosearcher.databinding.ItemAddressBinding
-import com.example.kakaosearcher.kakaoaddress.model.response.AddressModel
+import com.example.kakaosearcher.kakaoaddress.model.data.AddressData
 
 class AddressAdapter :
     RecyclerView.Adapter<AddressAdapter.AddressViewHolder>(),
-    BindableAdapter<AddressModel> {
+    BindableAdapter<AddressData> {
 
-    private val addressList: MutableList<AddressModel> = mutableListOf()
+    private val addressList: MutableList<AddressData> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressViewHolder {
         return AddressViewHolder(
@@ -34,7 +34,7 @@ class AddressAdapter :
 
     override fun getItemCount(): Int = addressList.size
 
-    override fun setData(items: List<AddressModel>?) {
+    override fun setData(items: List<AddressData>?) {
         if (items != null) {
             addressList.run {
                 clear()
@@ -46,8 +46,8 @@ class AddressAdapter :
     inner class AddressViewHolder(private val binding: ItemAddressBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: AddressModel) {
-            binding.setVariable(BR.addressModel, item)
+        fun bind(item: AddressData) {
+            binding.setVariable(BR.addressData, item)
         }
     }
 
