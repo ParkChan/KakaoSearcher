@@ -6,13 +6,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kakaosearcher.BR
 import com.example.kakaosearcher.R
-import com.example.kakaosearcher.common.BindableAdapter
 import com.example.kakaosearcher.databinding.ItemAddressBinding
 import com.example.kakaosearcher.kakaoaddress.model.data.AddressData
 
 class AddressAdapter :
-    RecyclerView.Adapter<AddressAdapter.AddressViewHolder>(),
-    BindableAdapter<AddressData> {
+    RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() {
 
     private val addressList: MutableList<AddressData> = mutableListOf()
 
@@ -34,7 +32,7 @@ class AddressAdapter :
 
     override fun getItemCount(): Int = addressList.size
 
-    override fun setData(items: List<AddressData>?) {
+    fun setData(items: List<AddressData>?) {
         if (items != null) {
             addressList.run {
                 clear()
