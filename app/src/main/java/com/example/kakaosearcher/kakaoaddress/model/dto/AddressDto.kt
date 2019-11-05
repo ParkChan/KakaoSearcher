@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class AddressDto(
     @SerializedName("documents")
-    val addressList: List<AddressModel>?
+    val addressList: List<AddressModel>? = null
 )
