@@ -1,8 +1,8 @@
-package com.example.kakaosearcher.kakaoaddress.model.resmodel
+package com.example.kakaosearcher.kakaoaddress.model.response
 
 import com.google.gson.annotations.SerializedName
 
 data class AddressModel(
     @SerializedName("address_name")
-    val addressName: String
+    val addressName: String? = null
 )

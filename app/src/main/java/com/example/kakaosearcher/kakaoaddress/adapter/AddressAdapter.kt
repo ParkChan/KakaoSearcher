@@ -1,42 +1,52 @@
 package com.example.kakaosearcher.kakaoaddress.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kakaosearcher.BR
 import com.example.kakaosearcher.R
-import com.example.kakaosearcher.kakaoaddress.model.resmodel.AddressModel
+import com.example.kakaosearcher.databinding.ItemAddressBinding
+import com.example.kakaosearcher.kakaoaddress.model.data.AddressData
 
-class AddressAdapter : RecyclerView.Adapter<AddressAdapter.ViewHolder>() {
-    private var addressList: List<AddressModel>? = null
+class AddressAdapter :
+    RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() {
 
-    fun setAddressList(addressList: List<AddressModel>) {
-        this.addressList = addressList
-        notifyDataSetChanged()
+    private val addressList: MutableList<AddressData> = mutableListOf()
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressViewHolder {
+        return AddressViewHolder(
+            DataBindingUtil.inflate(
+                LayoutInflater.from(parent.context),
+                R.layout.item_address,
+                parent,
+                false
+            )
+        )
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.adapter_address_item, parent, false)
-        return ViewHolder(view)
+    override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
+        val item = addressList[position]
+        holder.bind(item)
     }
 
-    override fun getItemCount(): Int {
-        return addressList?.size ?: 0
-    }
+    override fun getItemCount(): Int = addressList.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        addressList?.get(position)?.let { holder.bind(it) }
-    }
-
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val addressText =
-            itemView.findViewById<TextView>(R.id.tv_adapter_address_item_address)
-
-        fun bind(addressModel: AddressModel) {
-            addressText?.text = addressModel.addressName
+    fun setListData(items: List<AddressData>?) {
+        if (items != null) {
+            addressList.run {
+                clear()
+                addAll(items)
+            }
         }
     }
+
+    inner class AddressViewHolder(private val binding: ItemAddressBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(item: AddressData) {
+            binding.setVariable(BR.addressData, item)
+        }
+    }
+
 }
