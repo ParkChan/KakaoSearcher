@@ -1,20 +1,20 @@
 package com.example.kakaosearcher.kakaoaddress.repository
 
 import com.example.kakaosearcher.kakaoaddress.datasource.AddressDataSource
-import com.example.kakaosearcher.kakaoaddress.model.dto.AddressDto
+import com.example.kakaosearcher.kakaoaddress.model.response.AddressListModel
 import com.example.kakaosearcher.network.retrofit.CallBackListener
 
 class AddressRepository(
-    private val addressDataSource: AddressDataSource<AddressDto>
-) : AddressDataSource<AddressDto> {
+    private val addressListDataSource: AddressDataSource<AddressListModel>
+) : AddressDataSource<AddressListModel> {
 
     override fun getAddress(
         query: String?,
-        callBackListener: CallBackListener<AddressDto>
-    ) = addressDataSource.getAddress(
+        callBackListener: CallBackListener<AddressListModel>
+    ) = addressListDataSource.getAddress(
         query,
-        object : CallBackListener<AddressDto> {
-            override fun onSuccess(responseData: AddressDto) {
+        object : CallBackListener<AddressListModel> {
+            override fun onSuccess(responseData: AddressListModel) {
                 callBackListener.onSuccess(responseData)
             }
 

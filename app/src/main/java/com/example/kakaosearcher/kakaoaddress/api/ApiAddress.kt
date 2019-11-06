@@ -1,6 +1,6 @@
 package com.example.kakaosearcher.kakaoaddress.api
 
-import com.example.kakaosearcher.kakaoaddress.model.dto.AddressDto
+import com.example.kakaosearcher.kakaoaddress.model.response.AddressListModel
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -11,5 +11,5 @@ interface ApiAddress {
         @Query("query") query: String,
         @Query("page") page: Int = 1,
         @Query("size") size: Int = 30
-    ): Single<AddressDto>
+    ): Single<AddressListModel>
 }
