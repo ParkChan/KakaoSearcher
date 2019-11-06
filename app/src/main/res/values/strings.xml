@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">KakaoSearcher</string>
+
+    <string name="fragment_main_input_address">주소를 입력해주세요.</string>
+    <string name="fragment_main_search_button_text">검색</string>
+
 </resources>
