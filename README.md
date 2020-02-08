@@ -6,9 +6,7 @@
 
 
 ### 적용 기술
-- 구조
-  - MVVM
-- Jetpack
+- Android JetPack Architecture
   - Data Binding
   - LifeCycle
   - LiveData
