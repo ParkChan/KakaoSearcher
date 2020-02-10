@@ -10,7 +10,6 @@
   - Data Binding
   - LifeCycle
   - LiveData
-  - Room
   - ViewModel
   
 - Network
